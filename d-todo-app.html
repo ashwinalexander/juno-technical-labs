@@ -1,0 +1,79 @@
+<!-- Assuming the following HTML, add functionality for an action to occur when a user clicks on of the list items:
+<​ul​ ​id​=​"todo-app"​>
+    <​li​ ​class​=​"item"​>Walk the dog</​li​>
+    <​li​ ​class​=​"item"​>Pay bills</​li​>
+    <​li​ ​class​=​"item"​>Make dinner</​li​>
+    <​li​ ​class​=​"item"​>Code for one hour</​li​>
+</​ul​> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul ​id​=​"todo-app">
+            <li ​class​=​"item"​>Walk the dog</li>
+            <li ​class​=​"item"​>Pay Bills</li>
+            <li ​class​=​"item"​>Make dinner</li>
+            <li ​class​=​"item"​>Code for an hour</li>
+
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <script>
+
+        // creating a namespace
+        const todoapp = {};
+
+        $(document).ready(function () {
+            todoapp.init();
+        });
+
+        todoapp.init = function () {
+            todoapp.eventListener();
+        }
+
+
+        todoapp.eventListener = function () {
+            console.log("reachjed here");
+
+            let app = document.getElementById("todo-app");
+            console.log(app);
+            // Attach event listener to whole container
+            app.addEventListener('click', function (e) {
+                if (e.target && e.target.nodeName === 'li') {
+                    let item = e.target;
+                    alert('You clicked on item: ' + item.innerHTML);
+                }
+
+            });
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+ 
+document​.​addEventListener​(​'DOMContentLoaded'​, ​function​() {
+let​ app ​=​​ document​.​getElementById​(​'todo-app'​);​
+
+// Attach event listener to whole container
+app.​addEventListener​(​'click'​, ​function​(e) {
+if​ (e.​target ​​&&​ e.​target​.​nodeName​​ ===​​ 'li'​) {
+let​ item ​=​ e.​target​;​
+alert​(​'You clicked on item: '​​+​ item.innerHTML);
+}
+});
+}); 
